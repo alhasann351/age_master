@@ -6,10 +6,21 @@ import 'package:age_master/routes/app_pages.dart';
 import 'package:age_master/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'core/constants/app_strings.dart';
+import 'core/controllers/language_controller.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await GetStorage.init();
+
+  await Get.putAsync<LanguageController>(
+    () => LanguageController().init(),
+    permanent: true,
+  );
+
   runApp(const MyApp());
 }
 
@@ -18,6 +29,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final languageController = Get.find<LanguageController>();
+
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       scrollBehavior: PageScrollBehavior(),
@@ -26,7 +39,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.dark,
       themeMode: ThemeMode.system,
       translations: AppTranslations(),
-      locale: const Locale('en', 'US'),
+      locale: languageController.locale,
       fallbackLocale: const Locale('en', 'US'),
       initialBinding: InitialBinding(),
       initialRoute: AppPages.initial,

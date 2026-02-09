@@ -1,3 +1,3 @@
 class AppPages {
-  static const initial = 'splash_view';
+  static const initial = '/splash_view';
 }
