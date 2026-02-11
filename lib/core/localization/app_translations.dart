@@ -1,8 +1,10 @@
 import 'package:get/get.dart';
 
-import 'bangla.dart';
+import 'arabic.dart';
+import 'bengali.dart';
 import 'english.dart';
 import 'hindi.dart';
+import 'urdu.dart';
 
 class AppTranslations extends Translations {
   @override
@@ -10,5 +12,7 @@ class AppTranslations extends Translations {
     'en_US': enUS,
     'bn_BD': bnBD,
     'hi_IN': hiIN,
+    'ar_SA': arSA,
+    'ur_PK': urPK,
   };
 }

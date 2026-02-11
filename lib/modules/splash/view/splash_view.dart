@@ -21,6 +21,8 @@ class SplashView extends GetView<LanguageController> {
                   DropdownMenuItem(value: 'en_US', child: Text('English')),
                   DropdownMenuItem(value: 'bn_BD', child: Text('বাংলা')),
                   DropdownMenuItem(value: 'hi_IN', child: Text('हिन्दी')),
+                  DropdownMenuItem(value: 'ar_SA', child: Text('العربية')),
+                  DropdownMenuItem(value: 'ur_PK', child: Text('اردو')),
                 ],
                 onChanged: (value) {
                   if (value != null) {
@@ -34,7 +36,52 @@ class SplashView extends GetView<LanguageController> {
         ],
       ),
       body: Center(
-        child: Text('welcome'.tr, style: const TextStyle(fontSize: 22)),
+        child: Column(
+          children: [
+            Text(
+              'welcome'.tr,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
+            ),
+            Text(
+              'welcome'.tr,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
+            ),
+            Text(
+              'welcome'.tr,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
+            ),
+            Text(
+              'welcome'.tr,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
+            ),
+            Text(
+              'welcome'.tr,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
+            ),
+            Text(
+              'welcome'.tr,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
+            ),
+            Text(
+              'welcome'.tr,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
+            ),
+          ],
+        ),
       ),
     );
   }
