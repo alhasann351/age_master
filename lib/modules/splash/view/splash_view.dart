@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../core/controllers/language_controller.dart';
+import '../../../core/widgets/theme_mode_selector.dart';
 
 class SplashView extends GetView<LanguageController> {
   const SplashView({super.key});
@@ -38,36 +39,7 @@ class SplashView extends GetView<LanguageController> {
       body: Center(
         child: Column(
           children: [
-            Text(
-              'welcome'.tr,
-              style: Theme.of(
-                context,
-              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
-            ),
-            Text(
-              'welcome'.tr,
-              style: Theme.of(
-                context,
-              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
-            ),
-            Text(
-              'welcome'.tr,
-              style: Theme.of(
-                context,
-              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
-            ),
-            Text(
-              'welcome'.tr,
-              style: Theme.of(
-                context,
-              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
-            ),
-            Text(
-              'welcome'.tr,
-              style: Theme.of(
-                context,
-              ).textTheme.bodyLarge?.copyWith(fontSize: 50),
-            ),
+            const ThemeModeSelector(),
             Text(
               'welcome'.tr,
               style: Theme.of(

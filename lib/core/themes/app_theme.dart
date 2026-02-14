@@ -1,30 +1,60 @@
 import 'package:flutter/material.dart';
 
+import '../constants/app_colors.dart';
+
 class AppTheme {
   static ThemeData light({required String fontFamily}) {
     return ThemeData(
+      useMaterial3: true,
       brightness: Brightness.light,
-      primaryColor: Colors.blue,
-      scaffoldBackgroundColor: Colors.white,
       fontFamily: fontFamily,
+      scaffoldBackgroundColor: AppColors.lightScaffoldBackgroundColor,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: AppColors.lightPrimaryColor,
+      ),
+      cardColor: AppColors.lightCardColor,
+      dividerColor: AppColors.cardBorderColor,
       textTheme: TextTheme(
-        bodySmall: TextStyle(fontFamily: fontFamily, color: Colors.black),
-        bodyMedium: TextStyle(fontFamily: fontFamily, color: Colors.black),
-        bodyLarge: TextStyle(fontFamily: fontFamily, color: Colors.black),
+        bodySmall: TextStyle(
+          fontFamily: fontFamily,
+          color: AppColors.lightPrimaryTextColor,
+        ),
+        bodyMedium: TextStyle(
+          fontFamily: fontFamily,
+          color: AppColors.lightPrimaryTextColor,
+        ),
+        bodyLarge: TextStyle(
+          fontFamily: fontFamily,
+          color: AppColors.lightPrimaryTextColor,
+        ),
       ),
     );
   }
 
   static ThemeData dark({required String fontFamily}) {
     return ThemeData(
+      useMaterial3: true,
       brightness: Brightness.dark,
-      primaryColor: Colors.teal,
-      scaffoldBackgroundColor: Colors.black,
       fontFamily: fontFamily,
+      scaffoldBackgroundColor: AppColors.darkScaffoldBackgroundColor,
+      appBarTheme: const AppBarTheme(
+        backgroundColor: AppColors.darkPrimaryColor,
+      ),
+      cardColor: AppColors.darkCardColor,
+      dividerColor: AppColors.cardBorderColor.withOpacity(0.25),
       textTheme: TextTheme(
-        bodySmall: TextStyle(fontFamily: fontFamily, color: Colors.white),
-        bodyMedium: TextStyle(fontFamily: fontFamily, color: Colors.white),
-        bodyLarge: TextStyle(fontFamily: fontFamily, color: Colors.white),
+        bodySmall: TextStyle(
+          fontFamily: fontFamily,
+          color: AppColors.darkPrimaryTextColor,
+        ),
+        bodyMedium: TextStyle(
+          fontFamily: fontFamily,
+          color: AppColors.darkPrimaryTextColor,
+        ),
+        bodyLarge: TextStyle(
+          fontFamily: fontFamily,
+          color: AppColors.darkPrimaryTextColor,
+        ),
       ),
     );
   }

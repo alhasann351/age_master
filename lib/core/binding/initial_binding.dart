@@ -1,6 +1,10 @@
 import 'package:get/get.dart';
 
+import '../controllers/theme_controller.dart';
+
 class InitialBinding extends Bindings {
   @override
-  void dependencies() {}
+  void dependencies() {
+    Get.put<ThemeController>(ThemeController(), permanent: true);
+  }
 }

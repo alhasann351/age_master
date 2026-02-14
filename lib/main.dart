@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
 import 'core/controllers/language_controller.dart';
+import 'core/controllers/theme_controller.dart';
 import 'core/localization/app_translations.dart';
 import 'core/themes/app_theme.dart';
 import 'routes/app_pages.dart';
@@ -10,11 +11,15 @@ import 'routes/app_routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   await GetStorage.init();
 
   await Get.putAsync<LanguageController>(
     () => LanguageController().init(),
+    permanent: true,
+  );
+
+  await Get.putAsync<ThemeController>(
+    () => ThemeController().init(),
     permanent: true,
   );
 
@@ -27,6 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final langController = Get.find<LanguageController>();
+    final themeController = Get.find<ThemeController>();
 
     return Obx(() {
       final font = langController.fontFamily;
@@ -37,9 +43,13 @@ class MyApp extends StatelessWidget {
         translations: AppTranslations(),
         locale: langController.locale,
         fallbackLocale: const Locale('en', 'US'),
+
         theme: AppTheme.light(fontFamily: font),
         darkTheme: AppTheme.dark(fontFamily: font),
-        themeMode: ThemeMode.system,
+
+        // ✅ Reactive theme mode (System/Light/Dark)
+        themeMode: themeController.themeMode,
+
         initialRoute: AppPages.initial,
         getPages: AppRoutes.appRoutes(),
       );
